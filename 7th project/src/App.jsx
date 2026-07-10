@@ -1,10 +1,11 @@
 import React from 'react'
+import Login from './Components/Auth/Login'
 
 const App = () => {
   return (
-    <div>
-      App
-    </div>
+    <> 
+<Login/>
+    </> // fragments
   )
 }
 
