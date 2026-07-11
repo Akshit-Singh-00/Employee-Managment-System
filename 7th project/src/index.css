@@ -11,3 +11,17 @@ body{
 #tasklist::-webkit-scrollbar{
 display: none;
 }
+
+/* ::placeholder{
+  background-color: white;
+  color: rgb(130, 124, 124);
+  outline: none;
+  border: none;
+}
+
+textarea{
+  background-color: white;
+  color: black;
+  outline: none;
+  border: none;
+} */
