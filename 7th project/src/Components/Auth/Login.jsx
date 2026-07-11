@@ -17,7 +17,7 @@ setPassword('')
     } // two way binding
   return (
     <div className='flex h-screen w-screen items-center justify-center'>
-      <div className='border-2 rounded-b-full  border-emerald-600 p-20'>
+      <div className='border-2 rounded-full border-emerald-600 p-20'>
         <form onSubmit={(e)=>{
             submitHandler(e)
         }}
