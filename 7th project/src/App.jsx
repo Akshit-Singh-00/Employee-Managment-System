@@ -7,55 +7,60 @@ import { admin, employees, getLocalStorag, setLocalStorag } from './utils/localS
 import { AuthContext } from './context/AuthProvider'
 const App = () => {
 
-     const [user, setUser] = useState(null);
-     const authData=useContext(AuthContext)
+  const [user, setUser] = useState(null);
+  const [loogedInUserData, setloogedInUserData] = useState(null)
+  const authData = useContext(AuthContext)
 
-    useEffect(() => {
-if(authData){
-const loggedInUser=localStorage.getItem("loggedInUser")
-if(loggedInUser){
-  setUser(loggedInUser.role)
-}
-}
-    }, [])
-    
-     
-     const handleLogin=(email,password)=>{
-      if(email=='admin@example.com' && password=='123'){
-        setUser('admin')
-        localStorage.setItem('loggedInUser',JSON.stringify({role:'admin'}))
-// console.log("This is admin")
-      }
-        
-      // console.log(email,password)
-     else if(authData && authData?.employees.find((e)=>email==e.email && password==e.password)){
-      setUser('employee')
-              localStorage.setItem('loggedInUser',JSON.stringify({role:'employee'}))
+  // useEffect(() => {
+  //   if (authData) {
+  //     const loggedInUser = localStorage.getItem("loggedInUser")
+  //     if (loggedInUser) {
+  //       setUser(loggedInUser.role)
+  //     }
+  //   }
+  // }, [authData])
 
-          // console.log("This is user")
-     }
-     else{
-      alert("Invalid Credentials")
-     }
+
+  const handleLogin = (email, password) => {
+    if (email == 'admin@example.com' && password == '123') {
+      setUser('admin')
+      localStorage.setItem('loggedInUser', JSON.stringify({ role: 'admin' }))
+      // console.log("This is admin")
     }
-    //  handleLogin('user@example.com','123')
+
+    // console.log(email,password)
+    else if (authData) {
+      const employee=authData.employees.find((e)=>email==e.email && e.password==password)
+      if(employee){
+
+        setUser('employee')
+        setloogedInUserData(employee)
+        localStorage.setItem('loggedInUser', JSON.stringify({ role: 'employee' }))
+      }
+ // console.log("This is user")
+    }
+    else {
+      alert("Invalid Credentials")
+    }
+  }
+  //  handleLogin('user@example.com','123')
 
   // useEffect(() => {
   //   // setLocalStorag()
   //   getLocalStorag()
 
-  
+
   // }, )
-  
+
 
 
   return (
-    <> 
-    {!user?<Login handleLogin={handleLogin}/>:''}
-    {user=='admin'? <AdminDashboard/>:<EmployeeDashboard/>}
-{/* <Login/> */}
-{/* <EmployeeDashboard/> */}
-{/* <AdminDashboard/> */}
+    <>
+      {!user ? <Login handleLogin={handleLogin} /> : ''}
+      {user == 'admin'? <AdminDashboard/>:( user=='employee'?<EmployeeDashboard data={loogedInUserData}/>:null)}
+      {/* <Login/> */}
+      {/* <EmployeeDashboard/> */}
+      {/* <AdminDashboard/> */}
     </> // fragments
   )
 }

@@ -1,8 +1,17 @@
+
+
 export const employees = [
   {
     id: 1,
+    firstName: "Rahul",
     email: "rahul@example.com",
     password: "123",
+    taskCounts: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 0
+    },
     tasks: [
       {
         active: true,
@@ -39,8 +48,15 @@ export const employees = [
 
   {
     id: 2,
+    firstName: "Priya",
     email: "priya@example.com",
     password: "123",
+    taskCounts: {
+      active: 1,
+      newTask: 0,
+      completed: 1,
+      failed: 1
+    },
     tasks: [
       {
         active: true,
@@ -77,8 +93,15 @@ export const employees = [
 
   {
     id: 3,
+    firstName: "Aman",
     email: "aman@example.com",
     password: "123",
+    taskCounts: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 0
+    },
     tasks: [
       {
         active: false,
@@ -115,8 +138,15 @@ export const employees = [
 
   {
     id: 4,
+    firstName: "Neha",
     email: "neha@example.com",
     password: "123",
+    taskCounts: {
+      active: 1,
+      newTask: 0,
+      completed: 1,
+      failed: 1
+    },
     tasks: [
       {
         active: false,
@@ -153,8 +183,15 @@ export const employees = [
 
   {
     id: 5,
+    firstName: "Arjun",
     email: "arjun@example.com",
     password: "123",
+    taskCounts: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 0
+    },
     tasks: [
       {
         active: false,
