@@ -1,16 +1,159 @@
-# React + Vite
+# Employee Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple Employee Management System built using **React.js** and **Tailwind CSS**. The application provides separate dashboards for Admin and Employees, allowing task assignment and task management through a clean and responsive interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- 🔐 Admin & Employee Login
+- 👨‍💼 Separate Admin Dashboard
+- 👨‍💻 Separate Employee Dashboard
+- 📋 Assign Tasks to Employees
+- 📅 Task Details (Title, Description, Date, Category)
+- 📊 Task Status Tracking
+  - New Tasks
+  - Active Tasks
+  - Completed Tasks
+  - Failed Tasks
+- 💾 Local Storage Authentication & Data Persistence
+- 🎨 Responsive UI using Tailwind CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React.js
+- JavaScript (ES6+)
+- Tailwind CSS
+- Context API
+- Local Storage
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+│── Components/
+│   ├── Auth/
+│   ├── Dashboard/
+│   ├── Other/
+│   └── TaskList/
+│
+│── context/
+│   └── AuthProvider.jsx
+│
+│── utils/
+│   └── localStorage.jsx
+│
+│── App.jsx
+│── main.jsx
+```
+
+---
+
+## 👤 Demo Credentials
+
+### Admin
+
+```
+Email: admin@example.com
+Password: 123
+```
+
+### Employees
+
+| Name | Email | Password |
+|------|-------|----------|
+| Rahul | rahul@example.com | 123 |
+| Priya | priya@example.com | 123 |
+| Aman | aman@example.com | 123 |
+| Neha | neha@example.com | 123 |
+| Arjun | arjun@example.com | 123 |
+
+---
+
+## ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/your-username/employee-management-system.git
+```
+
+Go to the project folder
+
+```bash
+cd employee-management-system
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the development server
+
+```bash
+npm run dev
+```
+
+---
+
+## 📸 Screenshots
+
+Add screenshots of:
+
+- Login Page
+- Admin Dashboard
+- Employee Dashboard
+- Task Cards
+
+---
+
+## 📚 What I Learned
+
+- React Components
+- Props
+- State Management
+- React Hooks
+  - useState
+  - useEffect
+  - useContext
+- Context API
+- Local Storage
+- Conditional Rendering
+- Form Handling
+- Tailwind CSS
+- Component-Based Architecture
+
+---
+
+## 🔮 Future Improvements
+
+- Backend Integration (Node.js & Express)
+- MongoDB Database
+- JWT Authentication
+- Role-Based Authorization
+- Edit/Delete Tasks
+- Search & Filter Tasks
+- Employee Profile
+- Notifications
+- Dark/Light Theme
+- Charts & Analytics
+
+---
+
+## 👨‍💻 Author
+
+**Khush Singh**
+
+GitHub: https://github.com/your-github-username
+
+---
+
+## 📄 License
+
+This project is created for learning purposes and is open-source.
