@@ -154,6 +154,6 @@ GitHub: https://github.com/your-github-username
 
 ---
 
-## 📄 License
+## License
 
 This project is created for learning purposes and is open-source.
