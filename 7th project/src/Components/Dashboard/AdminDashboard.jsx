@@ -1,18 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Header from '../Other/Header'
 import CreateTask from '../Other/CreateTask'
 import AllTask from '../Other/AllTask'
-
+import { AuthContext } from '../../context/AuthProvider'
 
 const AdminDashboard = () => {
+
+  const authData = useContext(AuthContext);
+
   return (
-    <div className='h-screen w-full p-10 '>
+    <div className='h-screen w-full p-10'>
       <Header />
-      <CreateTask/>
-      <AllTask/>
+      <CreateTask />
+      <AllTask data={authData.employees} />
     </div>
-
-
   )
 }
 
