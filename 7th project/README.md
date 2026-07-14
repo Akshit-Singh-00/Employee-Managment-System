@@ -230,4 +230,4 @@ npm run dev
 
 ## Live Demo
 
-Adding Soon
+https://employee-managment-system-4q3q.vercel.app/
