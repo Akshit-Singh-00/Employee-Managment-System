@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 
 const CreateTask = () => {
-  const authData = useContext(AuthContext);
+  const { userData, setUserData } = useContext(AuthContext);
 
   const [taskTitle, setTaskTitle] = useState("");
   const [taskDate, setTaskDate] = useState("");
@@ -13,7 +13,7 @@ const CreateTask = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const employees = [...authData.employees];
+    const employees = [...userData.employees];
 
     const employeeIndex = employees.findIndex(
       (emp) =>
@@ -40,6 +40,27 @@ const CreateTask = () => {
     employees[employeeIndex].taskCounts.newTask += 1;
 
     localStorage.setItem("employees", JSON.stringify(employees));
+
+setUserData({
+    employees,
+    admin: userData.admin,
+});
+
+const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+if (
+  loggedInUser &&
+  loggedInUser.role === "employee" &&
+  loggedInUser.data.id === employees[employeeIndex].id
+) {
+  localStorage.setItem(
+    "loggedInUser",
+    JSON.stringify({
+      role: "employee",
+      data: employees[employeeIndex],
+    })
+  );
+}
 
     alert("Task Created Successfully");
 
@@ -90,11 +111,11 @@ const CreateTask = () => {
   >
     <option value="">Select Employee</option>
 
-    {authData.employees.map((emp) => (
-      <option key={emp.id} value={emp.firstName}>
-        {emp.firstName}
-      </option>
-    ))}
+    {userData?.employees.map((emp) => (
+  <option key={emp.id} value={emp.firstName}>
+    {emp.firstName}
+  </option>
+))}
   </select>
 </div>
 

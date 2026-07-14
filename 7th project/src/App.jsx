@@ -9,7 +9,7 @@ const App = () => {
   const [user, setUser] = useState(null);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
 
-  const authData = useContext(AuthContext);
+ const { userData } = useContext(AuthContext);
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("loggedInUser");
@@ -25,6 +25,30 @@ const App = () => {
     }
   }, []);
 
+  useEffect(() => {
+  if (
+    user === "employee" &&
+    userData &&
+    loggedInUserData
+  ) {
+    const updatedEmployee = userData.employees.find(
+      (emp) => emp.id === loggedInUserData.id
+    );
+
+    if (updatedEmployee) {
+      setLoggedInUserData(updatedEmployee);
+
+      localStorage.setItem(
+        "loggedInUser",
+        JSON.stringify({
+          role: "employee",
+          data: updatedEmployee,
+        })
+      );
+    }
+  }
+}, [userData]);
+
   const handleLogin = (email, password) => {
     if (email === "admin@example.com" && password === "123") {
       setUser("admin");
@@ -39,10 +63,10 @@ const App = () => {
       return;
     }
 
-    if (authData) {
-      const employee = authData.employees.find(
+    if (userData) {
+    const employee = userData.employees.find(
         (e) => e.email === email && e.password === password
-      );
+    );
 
       if (employee) {
         setUser("employee");

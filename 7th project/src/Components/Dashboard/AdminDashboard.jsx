@@ -6,13 +6,13 @@ import { AuthContext } from '../../context/AuthProvider'
 
 const AdminDashboard = () => {
 
-  const authData = useContext(AuthContext);
+const { userData } = useContext(AuthContext);
 
   return (
     <div className='h-screen w-full p-10'>
       <Header />
       <CreateTask />
-      <AllTask data={authData.employees} />
+      <AllTask data={userData?.employees || []}/>
     </div>
   )
 }
